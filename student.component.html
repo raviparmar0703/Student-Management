@@ -1,0 +1,85 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+        <h2 class="text-light primary py-3">Student management system</h2>
+        <div class="d-flex">
+            <button class="btn btn-success" (click)="add()" data-bs-toggle="modal" data-bs-target="#exampleModal" >Add student</button>&nbsp;
+            <button class="btn btn-warning" >Logout</button>
+        </div>
+
+    </div>
+
+</nav>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">S.Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">City</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Ravi</td>
+            <td>ravi@123</td>
+            <td>704312</td>
+            <td>Pune</td>
+            
+            <td>
+                <button class="btn btn-primary " (click)="update()" data-bs-toggle="modal"   data-bs-target="#exampleModal">Edit</button>&nbsp;
+                <button class="btn btn-danger">Delet</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+y
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div style="background: blue;" class="modal-header">
+        <h5 style="color:aliceblue; font-size: 20px;margin-left: 62px;font-weight: 620;" class="modal-title" id="exampleModalLabel">STUDENT MANAGEMENT SYSTEM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formvalue">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your namel">
+                <small *ngIf="formvalue.get('name')?.invalid && formvalue.get('name')?.touched" class="text-danger">Name is Required</small>
+              </div><br>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email"  formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+              <small *ngIf="formvalue.get('email')?.invalid && formvalue.get('email')?.touched" class="text-danger">email is Required</small>
+            </div><br>
+           
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mobile</label>
+                <input type="number" formControlName="Mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobilr number">
+                <small *ngIf="formvalue.get('Mobile')?.invalid && formvalue.get('Mobile')?.touched" class="text-danger">Mobile number is Required</small>
+              </div><br>
+              <div class="form-group">
+                <label for="exampleInputEmail1">City</label>
+                <input type="text"  formControlName="city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter city name">
+                <small *ngIf="formvalue.get('city')?.invalid && formvalue.get('city')?.touched" class="text-danger">city is Required</small>
+              </div>
+          </form>
+          
+      </div>
+      <div style="background: blue;" class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        <button *ngIf="showadd " type="button" class="btn btn-success">Add</button>
+        <button  *ngIf="showupdate " type="button" class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
