@@ -64,7 +64,7 @@ y
            
             <div class="form-group">
                 <label for="exampleInputEmail1">Mobile</label>
-                <input type="number" formControlName="Mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobilr number">
+                <input type="number" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter mobilr number">
                 <small *ngIf="formvalue.get('Mobile')?.invalid && formvalue.get('Mobile')?.touched" class="text-danger">Mobile number is Required</small>
               </div><br>
               <div class="form-group">
@@ -76,8 +76,8 @@ y
           
       </div>
       <div style="background: blue;" class="modal-footer">
-        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-        <button *ngIf="showadd " type="button" class="btn btn-success">Add</button>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+        <button *ngIf="showadd " type="button" (click)="addstudent()" class="btn btn-success">Add</button>
         <button  *ngIf="showupdate " type="button" class="btn btn-success">Update</button>
       </div>
     </div>
